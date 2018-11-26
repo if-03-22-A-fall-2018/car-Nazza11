@@ -12,20 +12,25 @@
 */
 #ifndef ___CAR_H
 #define ___CAR_H
+#include <stdlib.h>
 
-typedef struct CarImplementation* Car;
+enum CarType{
+  AIXAM,JEEP,FIAT_MULTIPLA
+};
 
-enum CarType { AIXAM, FIAT_MULTIPLA, JEEP};
-enum Color { RED, GREEN, BLUE, ORANGE, SILVER, BLACK};
+enum Color{
+  BLACK,SILVER,GREEN,ORANGE,BLUE,RED
+};
 
+typedef struct TestCase* Car;
+
+enum CarType get_type(Car car);
+enum Color get_color(Car car);
+double get_fill_level(Car car);
+double get_acceleration_rate(Car car);
+double get_speed(Car car);
+Car get_car(enum CarType type);
+void set_acceleration_rate(Car car,double rate);
 void init();
-bool start(Car car);
 void accelerate(Car car);
-void brake(Car car);
-int get_speed(Car car);
-float get_filling_level(Car car);
-void fill(Car car, float fuel_amount);
-void stop(Car car);
-Car get_car(enum Cartype type);
-
 #endif
